@@ -1,0 +1,63 @@
+﻿@model LaptopStore.Models.Product
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Quản lý sản phẩm";
+}
+<div class="container mt-4">
+    <h2>@(Model?.ProductId > 0 ? "Sửa sản phẩm" : "Thêm sản phẩm")</h2>
+
+    <form method="post">
+        <div class="form-group mb-2">
+            <label>Tên sản phẩm</label>
+            <input asp-for="Name" class="form-control" />
+        </div>
+
+        <div class="form-group mb-2">
+            <label>Ảnh</label>
+            <input asp-for="ImageUrl" class="form-control" />
+        </div>
+
+        <div class="form-group mb-2">
+            <label>Mô tả</label>
+            <textarea asp-for="Description" class="form-control"></textarea>
+        </div>
+
+        <div class="form-group mb-2">
+            <label>Giá</label>
+            <input asp-for="Price" class="form-control" />
+        </div>
+
+        <div class="form-group mb-2">
+            <label>CPU</label>
+            <input asp-for="CPU" class="form-control" />
+        </div>
+
+        <div class="form-group mb-2">
+            <label>RAM</label>
+            <input asp-for="RAM" class="form-control" />
+        </div>
+
+        <div class="form-group mb-2">
+            <label>Ổ cứng</label>
+            <input asp-for="Storage" class="form-control" />
+        </div>
+
+        <div class="form-group mb-2">
+            <label>Số lượng</label>
+            <input asp-for="StockQuantity" class="form-control" />
+        </div>
+
+        <div class="form-group mb-2">
+            <label>Hãng</label>
+            <select asp-for="BrandId" asp-items="ViewBag.Brands" class="form-control"></select>
+        </div>
+
+        <div class="form-group mb-3">
+            <label>Danh mục</label>
+            <select asp-for="CategoryId" asp-items="ViewBag.Categories" class="form-control"></select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Lưu</button>
+        <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+    </form>
+</div>

@@ -1,0 +1,51 @@
+﻿@model List<LaptopStore.Models.Customer>
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Quản lý khách hàng";
+}
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+<div class="container mt-4">
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Họ tên</th>
+                <th>Email</th>
+                <th>Số điện thoại</th>
+                <th>Địa chỉ</th>
+                <th>Quyền</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.FullName</td>
+                    <td>@item.Email</td>
+                    <td>@item.PhoneNumber</td>
+                    <td>@item.Address</td>
+                    <td>@item.Role</td>
+                    <td>
+                        @if (item.Role != "Admin")
+                        {
+                            <a asp-action="Delete" asp-route-id="@item.CustomerId" class="btn btn-sm btn-danger">Xóa</a>
+                        }
+                        else
+                        {
+                            <span class="text-muted">Không thể xóa</span>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

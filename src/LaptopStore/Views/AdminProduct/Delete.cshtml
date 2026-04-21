@@ -1,0 +1,14 @@
+﻿@model LaptopStore.Models.Product
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Xóa sản phẩm";
+}
+<div class="container mt-4">
+    <p>Bạn có chắc muốn xóa sản phẩm <strong>@Model.Name</strong> không?</p>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="ProductId" />
+        <button type="submit" class="btn btn-danger">Xóa</button>
+        <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+    </form>
+</div>

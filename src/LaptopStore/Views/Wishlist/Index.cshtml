@@ -1,0 +1,63 @@
+﻿@model List<LaptopStore.Models.WishlistItem>
+
+@{
+    ViewData["Title"] = "Sản phẩm yêu thích";
+}
+
+<div class="container-fluid pt-5">
+    <div class="row px-xl-5">
+        <div class="col-12">
+            <h3 class="mb-4">Danh sách yêu thích</h3>
+
+            <div class="row">
+                @if (Model != null && Model.Any())
+                {
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
+                            <div class="card product-item border-0 mb-4">
+                                <div class="card-header bg-transparent border p-0 d-flex align-items-center justify-content-center"
+                                     style="height:300px; overflow:hidden;">
+                                    <img src="~/@(item.Product?.ImageUrl ?? "img/no-image.png")"
+                                         alt="@item.Product?.Name"
+                                         style="max-height:100%; max-width:100%; object-fit:contain;">
+                                </div>
+
+                                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                                    <h6 class="mb-3">@item.Product?.Name</h6>
+                                    <div class="d-flex justify-content-center">
+                                        <h6>@item.Product?.Price.ToString("N0") đ</h6>
+                                    </div>
+                                </div>
+
+                                <div class="card-footer d-flex justify-content-between bg-light border">
+                                    <a asp-controller="Products" asp-action="Details" asp-route-id="@item.ProductId" class="btn btn-sm text-dark p-0">
+                                        <i class="fas fa-eye text-primary mr-1"></i>Chi tiết
+                                    </a>
+
+                                    <form asp-controller="Cart" asp-action="AddToCart" method="post" style="display:inline;">
+                                        <input type="hidden" name="productId" value="@item.ProductId" />
+                                        <input type="hidden" name="quantity" value="1" />
+                                        <button type="submit" class="btn btn-sm text-dark p-0 border-0 bg-transparent">
+                                            <i class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ
+                                        </button>
+                                    </form>
+
+                                    <a asp-controller="Wishlist" asp-action="Remove" asp-route-id="@item.WishlistItemId" class="btn btn-sm text-dark p-0">
+                                        <i class="fas fa-trash text-primary"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="col-12">
+                        <p>Bạn chưa có sản phẩm yêu thích nào.</p>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

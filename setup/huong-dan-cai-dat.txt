@@ -1,0 +1,19 @@
+# HƯỚNG DẪN CÀI ĐẶT VÀ CHẠY CHƯƠNG TRÌNH
+
+## 1. Yêu cầu môi trường
+
+Trước khi chạy chương trình, cần cài đặt các công cụ sau:
+
+- Visual Studio 2022
+- .NET 8 SDK
+- SQL Server
+- SQL Server Management Studio (SSMS)
+
+---
+
+## 2. Clone source code
+
+Tải source code từ GitHub về máy:
+
+```bash
+git clone <https://github.com/manhld160897/ASPNET-DK24TTC5-leducmanh-LaptopStore>

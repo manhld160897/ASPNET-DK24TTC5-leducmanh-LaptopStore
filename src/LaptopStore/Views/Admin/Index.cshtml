@@ -1,0 +1,76 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Quản trị";
+}
+
+<div class="container-fluid pt-5">
+    <div class="row px-xl-5">
+        <div class="col-12 mb-4">
+            <div class="bg-light rounded p-4 shadow-sm border">
+                <h2 class="mb-2 font-weight-bold text-dark">Trang quản trị</h2>
+                <p class="mb-0 text-muted">
+                    Quản lý sản phẩm, đơn hàng và khách hàng trong hệ thống LaptopStore.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row px-xl-5">
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body text-center py-5 d-flex flex-column">
+                    <div class="mb-3">
+                        <i class="fas fa-laptop fa-3x text-primary"></i>
+                    </div>
+                    <h4 class="font-weight-bold mb-3">Quản lý sản phẩm</h4>
+                    <p class="text-muted mb-4">
+                        Thêm, sửa, xóa và cập nhật thông tin sản phẩm laptop.
+                    </p>
+                    <div class="mt-auto">
+                        <a asp-controller="AdminProduct" asp-action="Index" class="btn btn-primary px-4">
+                            Vào quản lý
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body text-center py-5 d-flex flex-column">
+                    <div class="mb-3">
+                        <i class="fas fa-shopping-bag fa-3x text-success"></i>
+                    </div>
+                    <h4 class="font-weight-bold mb-3">Quản lý đơn hàng</h4>
+                    <p class="text-muted mb-4">
+                        Theo dõi danh sách đơn hàng và cập nhật trạng thái xử lý.
+                    </p>
+                    <div class="mt-auto">
+                        <a asp-controller="AdminOrder" asp-action="Index" class="btn btn-success px-4">
+                            Vào quản lý
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body text-center py-5 d-flex flex-column">
+                    <div class="mb-3">
+                        <i class="fas fa-users fa-3x text-warning"></i>
+                    </div>
+                    <h4 class="font-weight-bold mb-3">Quản lý khách hàng</h4>
+                    <p class="text-muted mb-4">
+                        Xem thông tin khách hàng và quản lý tài khoản trong hệ thống.
+                    </p>
+                    <div class="mt-auto">
+                        <a asp-controller="AdminCustomer" asp-action="Index" class="btn btn-warning px-4 text-white">
+                            Vào quản lý
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
